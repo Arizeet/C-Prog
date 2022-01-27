@@ -6,7 +6,7 @@ int main()
     system("cls");
     for (int a = 1; a <=5; a++)
     {
-        for (int c = 5; c>=a; c--)
+        for (int c = 5; c>=a;c--)
             {
                 printf("  ");
             }
