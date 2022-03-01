@@ -2,7 +2,7 @@
 #include<stdlib.h>
 int main()
 {
-    int arr[20]={1,2,4,2,7,0,3,2,6,7};
+    int arr[20]={1,2,3,4,5,6,7,8,9,10};
     int pos,num;
     system("cls");
     printf("Enter the number u want to insert: ");
