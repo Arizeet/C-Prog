@@ -17,7 +17,7 @@ int main()
     {
         printf("%d\t",arr[i]);
     }
-    printf("\nEnter the no u want to insert: ");
+    printf("\n\nEnter the no u want to insert: ");
     scanf("%d",&num);
     printf("Enter the pos u want to insert: ");
     scanf("%d",&pos);
