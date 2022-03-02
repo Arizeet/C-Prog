@@ -1,11 +1,24 @@
 #include<stdio.h>
 #include<stdlib.h>
+#define N 50
 int main()
 {
-    int arr[11]= {0,1,2,3,4,5,6,7,8,9,10};
-    int low=0, high=11, mid,num;
+    int arr[N],n,low=0, high, mid,num;
     system("cls");
-    printf("Enter the num u want ot search: ");
+    printf("Enter no of elements in array:\n");
+    scanf("%d",&n);
+    high=n;
+    printf("Enter the elements in ascending order:\n");
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    printf("Entered array is:\n");
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d\t",arr[i]);
+    }
+    printf("\nEnter the num u want to search: ");
     scanf("%d",&num);
     for (int i = 0; low<=high; i++)
     {
