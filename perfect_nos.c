@@ -3,23 +3,26 @@
 
 int main()
 {
-    int num, sum=0,min,max;
+    int sum,min,max,i;
     system("cls");
     printf("Enter min & max: ");
     scanf("%d%d",&min,&max);
-    for (int i = min; i <=max; i++)
+    printf("The perfect nos. btwn %d & %d is:\n",min,max);
+    for (; min <=max; min++)
     {
-        for (int j = min; j <max/2; j++)
+        sum=0;
+        for (i = 1; i < min; i++)
         {
-            if (max%j==0)
+            if (min%i==0)
             {
-                sum=sum+j;
+                sum=sum+i;
             }
         }
-        if (sum==i)
+        if (min==sum)
         {
-            printf("\t%d",i);
-        }
+            printf("%d\t",sum);
+        } 
     }
+    
     return 0;
 }
