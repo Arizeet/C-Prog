@@ -4,7 +4,7 @@
 #include<math.h>
 int main()
 {
-    int num,num1,num2,current_num,count,sum=0;
+    int num,num1,num2,current_num,count=0,sum=0;
     system("cls");
     printf("Enter a no: ");
     scanf("%d",&num);
@@ -20,10 +20,13 @@ int main()
         current_num=num1%10;
         sum=sum+pow(current_num,count);
         num1=num1/10;
+        printf("%d\n",sum);
     }
-    if (sum==num2){
-        printf("%d is an Armstrong number",num2);}
-    else{
-        printf("%d is not a Armstrong number",num2);}
+    if(sum==num2)
+        printf("%d is an Armstrong number",num2);
+    // else if (num2==153){
+    //     printf("153 is an Armstrong number");}
+    else
+        printf("%d is not a Armstrong number",num2);
     return 0;
 }
