@@ -20,7 +20,7 @@ int main()
         current_num=num1%10;
         sum=sum+pow(current_num,count);
         num1=num1/10;
-        printf("%d\n",sum);
+        //printf("%d\n",sum);
     }
     if(sum==num2)
         printf("%d is an Armstrong number",num2);
