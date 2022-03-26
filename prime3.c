@@ -10,7 +10,7 @@ int main()
         if (n%b==0){
             c=c+1;}
         b++;
-    } while (b<=n);
+    } while(b<=n);
     if (c==1){
         printf("PRIME");}
     else{
