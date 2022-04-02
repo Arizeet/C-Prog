@@ -1,9 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
-#define N 50
 int main()
 {
-    int arr[N],n,small,pos,temp;
+    int arr[50],n,small,pos,temp;
     system("cls");
     printf("Enter the no of elements in array: ");
     scanf("%d",&n);
