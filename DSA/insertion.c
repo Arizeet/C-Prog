@@ -31,9 +31,17 @@ int main(){
         scanf("%d", &num);
         printf("Enter the position to insert: ");
         scanf("%d", &pos);
-        insertArr(arr, pos, num, n);
-        n++;
-        printf("New array...\n");
+        if (pos>n){
+            printf("The position is more than no. of elements, so...\n");
+            n++;
+            pos=n;
+            insertArr(arr, pos, num, n);
+        }
+        else{
+            insertArr(arr, pos, num, n);
+            n++;
+        }
+        printf("New array is...\n");
         printArr(arr, n);
     }
     return 0;
