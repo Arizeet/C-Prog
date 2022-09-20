@@ -3,16 +3,18 @@
 
 int main()
 {
-    int a[6];
+    int a[6]={11,12,45,14,15,16};
     int *p=a;
-    for (int i = 0; i < 6; i++){
-        scanf("%d",&a[i]);  //(a+i), (p+i), (i+a)
-    }
+    system("cls");
+    // printf("Enter the data:");
+    // for (int i = 0; i < 6; i++){
+    //     scanf("%d",&a[i]);  //(a+i), (p+i), (i+a)
+    // }
     for (int i = 0; i < 6; i++){
         printf("%d ",a[i]); //*(a+i), *(p+i), i[a], i[p]
     }
     
-    printf("1.  %d\n",p);
+    printf("\n1.  %d\n",p);
     printf("2.  %d\n",a);
     printf("3.  %d\n",&a);
     printf("4.  %d\n",&p);
