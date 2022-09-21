@@ -6,9 +6,10 @@ int main()
     system("cls");
     printf("Enter the no of elements in array: ");
     scanf("%d", &n);
+    printf("Enter the elements of array:\n");
     for (int i = 0; i < n; i++)
     {
-        printf("Element no. %d: ", i + 1);
+        // printf("Element no. %d: ", i + 1);
         scanf("%d", &arr[i]);
     }
     for (int j = 0; j < n - 1; j++)
