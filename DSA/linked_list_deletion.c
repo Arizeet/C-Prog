@@ -33,53 +33,58 @@ void display(){
         temp=temp->next;
     }
 }
-void insertB(){
-    struct node *newnode;
-    newnode = (struct node *)malloc(sizeof(struct node));
-    printf("Enter data to insert at beginning: ");
-    scanf("%d",&newnode->data);
-    newnode->next=head;
-    head=newnode;
-    count++;
-}
-void insertE(){
-    struct node *newnode, *temp;
-    newnode = (struct node *)malloc(sizeof(struct node));
-    printf("Enter data to insert at end: ");
-    scanf("%d",&newnode->data);
-    temp=head;
-    while(temp->next!=0){
-        temp=temp->next;
+void deleteB(){
+    struct node *temp;
+    if(head==0){
+        printf("\nLL is empty");
     }
-    temp->next=newnode;
-    count++;
+    else{
+        temp=head;
+        head=head->next;
+        free(temp);
+        count--;
+    }
 }
-void insertSP(){
+void deleteE(){
+    struct node *currnode, *prevnode;
+    if(head==0){
+        printf("\nLL is empty");
+    }
+    else{
+        currnode=prevnode=head;
+        while(currnode->next!=0){
+            prevnode=currnode;
+            currnode=currnode->next;
+        }
+        prevnode->next=0;
+        free(currnode);
+        count--;
+    }
+}
+void deleteSP(){
+    struct node *currnode, *prevnode;
     int pos,i=1;
-    struct node *newnode, *temp;
-    printf("Enter the pos to enter: ");
+    printf("Enter the pos to delete: ");
     scanf("%d",&pos);
-    if(pos>count+1){
+    if(pos>count || pos<1){
         printf("Invalid position...");
     }
     else if(pos==1){
-        insertB();
+        deleteB();
     }
-    else if(pos==count+1){
-        insertE();
+    else if(pos==count){
+        deleteE();
     }
     else{
-        newnode = (struct node *)malloc(sizeof(struct node));
-        while(i<=pos){
-            temp=head;
-            temp=temp->next;
+        currnode=prevnode=head;
+        while(i<pos){
+            prevnode=currnode;
+            currnode=currnode->next;
             i++;
         }
-        printf("Enter the data: ");
-        scanf("%d",&newnode->data);
-        newnode->next=temp->next;
-        temp->next=newnode;
-        count++;
+        prevnode->next=currnode->next;
+        free(currnode);
+        count--;
     }
 }
 int main(){
@@ -87,12 +92,12 @@ int main(){
     create();
     printf("LL created: %d nodes in the list",count);
     while(ch){
-        printf("\n1. InsertB\t2. InsertE\t3. InsertSP\t4. Display\t5. No. of nodes\t6. EXIT\n");
+        printf("\n1. DeleteB\t2. DeleteE\t3. DeleteSP\t4. Display\t5. No. of nodes\t6. EXIT\n");
         scanf("%d",&choice);
         switch(choice){
-            case 1: insertB();  break;
-            case 2: insertE();  break;
-            case 3: insertSP(); break;
+            case 1: deleteB();  break;
+            case 2: deleteE();  break;
+            case 3: deleteSP(); break;
             case 4: display();  break;
             case 5: printf("%d nodes in LL",count); break;
             case 6: exit(1);
