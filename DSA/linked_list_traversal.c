@@ -1,36 +1,41 @@
 #include<stdio.h>
 #include<stdlib.h>
-struct Node{
+struct node{
     int data;
-    struct Node* next;
+    struct node *next;
 };
-void linkedListTraversal(struct Node* ptr){
-    while (ptr!=NULL){
-        printf("%d ",ptr->data);
-        ptr=ptr->next;
+int count=0;
+struct node *head;
+void create(){
+    struct node *newnode, *temp;
+    int choice=1;
+    while(choice){
+        newnode = (struct node *)malloc(sizeof(struct node));
+        count++;
+        printf("Enter data: ");
+        scanf("%d",&newnode->data);
+        if(head==0){
+            head=temp=newnode;
+        }
+        else{
+            temp->next=newnode;
+            temp=newnode;
+        }
+        printf("Continue..? ");
+        scanf("%d",&choice);
     }
 }
-int main()
-{
-    struct Node * head;
-    struct Node * second;
-    struct Node * third;
-    struct Node * fourth;
-    system("cls");
-    // Allocate memory for nodes in the linked list in Heap
-    head=(struct Node*)malloc(sizeof(struct Node));
-    second=(struct Node*)malloc(sizeof(struct Node));
-    third=(struct Node*)malloc(sizeof(struct Node));
-    fourth=(struct Node*)malloc(sizeof(struct Node));
-    // Link nodes
-    head->data=1;
-    head->next=second;
-    second->data=2;
-    second->next=third;
-    third->data=3;
-    third->next=fourth;
-    fourth->data=4;
-    fourth->next=NULL;
-    linkedListTraversal(head);
+void display(){
+    struct node *temp;
+    temp=head;
+    while(temp!=0){
+        printf("%d\t",temp->data);
+        temp=temp->next;
+    }
+}
+int main(){
+    create();
+    printf("LL created: %d nodes in the list",count);
+    display();
     return 0;
 }
