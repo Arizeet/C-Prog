@@ -8,7 +8,7 @@ struct node{
 int count=0;
 struct node *head, *tail;
 void create(){
-    struct node *newnode, *tail;
+    struct node *newnode;
     int choice=1;
     while(choice){
         newnode = (struct node *)malloc(sizeof(struct node));
@@ -29,26 +29,26 @@ void create(){
 }
 void display(){
     struct node *temp;
-    // int ch;
-    // printf("\n1. From Head\t2. From Tail\n");
-    // scanf("%d",&ch);
-    // if(ch==1){
+    int ch;
+    printf("\n1. From Head\t2. From Tail\n");
+    scanf("%d",&ch);
+    if(ch==1){
         temp=head;
         while(temp!=0){
             printf("%d\t",temp->data);
             temp=temp->next;
         }
-    // }
-    // else if(ch==2){
-        // temp=tail;
-        // while(temp!=0){
-        //     printf("%d\t",temp->data);
-        //     temp=temp->prev;
-        // }
-    // }
-    // else{
-    //     printf("\nInvalid choice...");
-    // }
+    }
+    else if(ch==2){
+        temp=tail;
+        while(temp!=0){
+            printf("%d\t",temp->data);
+            temp=temp->prev;
+        }
+    }
+    else{
+        printf("\nInvalid choice...");
+    }
 }
 int main(){
     create();
