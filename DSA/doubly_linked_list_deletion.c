@@ -71,7 +71,10 @@ void deleteSP(){
     int pos,i=1;
     printf("Enter pos: ");
     scanf("%d",&pos);
-    if(pos==1){
+    if(pos<1||pos>count){
+        printf("Invalid position...");
+    }
+    else if(pos==1){
         deleteB();
     }
     else if(pos==count){
