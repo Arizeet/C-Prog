@@ -56,6 +56,7 @@ void deleteB(){
     head=head->next;
     head->prev=0;
     free(temp);
+    count--;
 }
 void deleteE(){
     struct node *temp;
@@ -63,10 +64,30 @@ void deleteE(){
     tail=tail->prev;
     tail->next=0;
     free(temp);
+    count--;
 }
 void deleteSP(){
     struct node *temp;
     int pos,i=1;
+    printf("Enter pos: ");
+    scanf("%d",&pos);
+    if(pos==1){
+        deleteB();
+    }
+    else if(pos==count){
+        deleteE();
+    }
+    else{
+        temp=head;
+        while(i<pos){
+            temp=temp->next;
+            i++;
+        }
+        temp->prev->next=temp->next;
+        temp->next->prev=temp->prev;
+        free(temp);
+        count--;
+    }
 }
 int main(){
     int ch=1,choice;
@@ -87,21 +108,3 @@ int main(){
     }
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
