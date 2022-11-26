@@ -20,10 +20,10 @@ int main(){
     for (int i = 0; i < n; i++){
         scanf("%d", &arr[i]);
     }
-    printf("Entered array is...\n");
-    for (int i = 0; i < n; i++){
-        printf("%d ", arr[i]);
-    }
+    // printf("Entered array is...\n");
+    // for (int i = 0; i < n; i++){
+    //     printf("%d ", arr[i]);
+    // }
     printf("\nEnter the number of times u want to insert: ");
     scanf("%d", &t);
     for (int i = 0; i < t; i++){
