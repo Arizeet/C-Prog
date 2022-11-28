@@ -72,12 +72,38 @@ void insertE(){
     }
     else{
         newnode = (struct node *)malloc(sizeof(struct node));
-        printf("Enter data to insert at beginning: ");
+        printf("Enter data to insert at end: ");
         scanf("%d",&newnode->data);
+        temp=head;
+        while (temp->next!=head)
+        {
+            temp=temp->next;
+        }
+        temp->next=newnode;
+        newnode->next=head;
     }
+    count++;
 }
 void insertSP(){
-    
+    struct node *newnode, *temp;
+    int pos,i=1;
+    printf("Enter the pos: ");
+    scanf("%d",&pos);
+    if (pos<1||pos>count+2){
+        printf("Invalid position...");
+    }
+    else if (pos==1){
+        insertB();
+    }
+    else if(pos==count+1){
+        insertE();
+    }
+    else{
+        newnode = (struct node *)malloc(sizeof(struct node));
+        printf("Enter data to insert: ");
+        scanf("%d",&newnode->data);
+        temp=head;
+    }
 }
 int main(){
     int ch=1,c;
@@ -91,7 +117,7 @@ int main(){
             case 2: insertE();  break;
             case 3: insertSP(); break;
             case 4: display();  break;
-            case 5: printf("%d nodes in LL",count); break;
+            case 5: printf("%d nodes in CLL",count); break;
             case 6: exit(1);
             default:    printf("Invalid i/p...\n");
         }
