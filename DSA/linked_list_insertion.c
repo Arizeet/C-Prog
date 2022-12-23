@@ -14,6 +14,7 @@ void create(){
         count++;
         printf("Enter data: ");
         scanf("%d",&newnode->data);
+        newnode->next=0;
         if(head==0){
             head=temp=newnode;
         }
@@ -32,6 +33,7 @@ void display(){
         printf("%d\t",temp->data);
         temp=temp->next;
     }
+    printf("\n");
 }
 void insertB(){
     struct node *newnode;
@@ -47,6 +49,7 @@ void insertE(){
     newnode = (struct node *)malloc(sizeof(struct node));
     printf("Enter data to insert at end: ");
     scanf("%d",&newnode->data);
+    newnode->next=0;
     temp=head;
     while(temp->next!=0){
         temp=temp->next;
@@ -59,7 +62,7 @@ void insertSP(){
     struct node *newnode, *temp;
     printf("Enter the pos to enter: ");
     scanf("%d",&pos);
-    if(pos>count+1){
+    if(pos>count+1||pos<1){
         printf("Invalid position...");
     }
     else if(pos==1){
@@ -70,13 +73,13 @@ void insertSP(){
     }
     else{
         newnode = (struct node *)malloc(sizeof(struct node));
-        while(i<=pos){
-            temp=head;
+        printf("Enter the data: ");
+        scanf("%d",&newnode->data);
+        temp=head;
+        while(i<pos-1){
             temp=temp->next;
             i++;
         }
-        printf("Enter the data: ");
-        scanf("%d",&newnode->data);
         newnode->next=temp->next;
         temp->next=newnode;
         count++;
@@ -85,9 +88,9 @@ void insertSP(){
 int main(){
     int ch=1,choice;
     create();
-    printf("LL created: %d nodes in the list",count);
+    printf("LL created: %d nodes in the list\n",count);
     while(ch){
-        printf("\n1. InsertB\t2. InsertE\t3. InsertSP\t4. Display\t5. No. of nodes\t6. EXIT\n");
+        printf("1. InsertB\t2. InsertE\t3. InsertSP\t4. Display\t5. No. of nodes\t6. EXIT\n");
         scanf("%d",&choice);
         switch(choice){
             case 1: insertB();  break;

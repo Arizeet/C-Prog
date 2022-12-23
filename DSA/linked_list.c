@@ -14,6 +14,7 @@ void create(){
         count++;
         printf("Enter data: ");
         scanf("%d",&newnode->data);
+        newnode->next=0;
         if(head==0){
             head=temp=newnode;
         }
@@ -35,7 +36,7 @@ void display(){
 }
 int main(){
     create();
-    printf("LL created: %d nodes in the list",count);
+    printf("LL created: %d nodes in the list\n",count);
     display();
     return 0;
 }

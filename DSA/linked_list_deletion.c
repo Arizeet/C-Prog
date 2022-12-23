@@ -8,12 +8,15 @@ int count=0;
 struct node *head;
 void create(){
     struct node *newnode, *temp;
-    int choice=1;
+    int choice;
+    printf("Want to create newnode..? ");
+    scanf("%d",&choice);
     while(choice){
         newnode = (struct node *)malloc(sizeof(struct node));
         count++;
         printf("Enter data: ");
         scanf("%d",&newnode->data);
+        newnode->next=0;
         if(head==0){
             head=temp=newnode;
         }
@@ -32,6 +35,7 @@ void display(){
         printf("%d\t",temp->data);
         temp=temp->next;
     }
+    printf("\n");
 }
 void deleteB(){
     struct node *temp;
@@ -90,9 +94,9 @@ void deleteSP(){
 int main(){
     int ch=1,choice;
     create();
-    printf("LL created: %d nodes in the list",count);
+    printf("LL created: %d nodes in the list\n",count);
     while(ch){
-        printf("\n1. DeleteB\t2. DeleteE\t3. DeleteSP\t4. Display\t5. No. of nodes\t6. EXIT\n");
+        printf("1. DeleteB\t2. DeleteE\t3. DeleteSP\t4. Display\t5. No. of nodes\t6. EXIT\n");
         scanf("%d",&choice);
         switch(choice){
             case 1: deleteB();  break;
